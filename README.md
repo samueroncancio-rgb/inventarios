@@ -2,6 +2,3 @@
 proyecto modular de riwi
 
 
-
-test
-
