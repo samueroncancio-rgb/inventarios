@@ -36,7 +36,7 @@ def main():
                     raise ValueError("Precio y cantidad no pueden ser negativos.")
                 
                 if agregar_producto(inventario, nombre, precio, cantidad):
-                    print("Producto creado exitosamente.")
+                    print("Producto creado de forma correcta.")
                 else:
                     print("Error: El producto ya existe en el inventario.")
             
