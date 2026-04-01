@@ -3,7 +3,7 @@ from archivo import *
 
 def main():
     inventario = []
-    print("=== SISTEMA DE INVENTARIOS ===")
+    print("SISTEMA DE INVENTARIOS ")
     
     while True:
         print("\n--- MENÚ PRINCIPAL ---")
@@ -36,7 +36,7 @@ def main():
                     raise ValueError("Precio y cantidad no pueden ser negativos.")
                 
                 if agregar_producto(inventario, nombre, precio, cantidad):
-                    print("Producto agregado exitosamente.")
+                    print("Producto creado exitosamente.")
                 else:
                     print("Error: El producto ya existe en el inventario.")
             
@@ -49,10 +49,12 @@ def main():
         
         # Opción 3: Buscar producto
         elif opcion == 3:
-            nombre = input("Nombre del producto a buscar: ").strip()
+            nombre = input("Nombre del producto a buscar: ")
             prod = buscar_producto(inventario, nombre)
+
+           
             if prod:
-                print(f"\nProducto encontrado:\nNombre: {prod['nombre']}\nPrecio: ${prod['precio']:.2f}\nCantidad: {prod['cantidad']}")
+                print(f"Producto encontrado:\nNombre: {prod['nombre']}\nPrecio: ${prod['precio']:.2f}\nCantidad: {prod['cantidad']}")
             else:
                 print("Producto no encontrado.")
         

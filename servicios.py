@@ -11,15 +11,17 @@ def mostrar_inventario(inventario):#muestra el inventario actualizada en consola
         print("no hay existencia de productos")
         return
     print("=== inventario ===")
-    print("vacio ")
+    print(f"{"nombre"} {"precio ($):"} {"cantidad"}")
+
     for prod in inventario:
-        print(f"{prod["nombre"]}{prod["precio"]}{prod["cantidad"]}")
+        print(f"{prod["nombre"]}   {prod["precio"]:}       {prod["cantidad"]}")
 
 def buscar_producto(inventario, nombre):#busca un producto por el nombre en el inventario
     for prod in inventario:
         if prod["nombre"].lower()==nombre.lower():
-            return prod
-        return None
+          return prod
+            
+    return None
 
 
 def actualizar_producto(inventario, nombre, nuevo_precio=None, nueva_cantidad=None):#actualiza el precio, la cantidad y nombre del producto.
@@ -45,6 +47,6 @@ def calcular_estadisticas(inventario): #esta funcion clacula las metricas del in
     unidades_totales=sum(prod["cantidad"]for prod in inventario) 
     subtotal= lambda p: p["precio"]*p["cantidad"]
     valor_total=sum(subtotal(prod)for prod in inventario)  
-    producto_mas_costoso=max(inventario,key=lambda p:p["precio"])
-    mayor_stock=max(inventario,key=lambda p: p["cantidad"])
-    return{"unidades_totales":unidades_totales, "valor_total":valor_total,"producto_mas_costoso":(producto_mas_costoso["nombre"],producto_mas_costoso["precio"]),"mayor_stock":(mayor_stock["nombre"],mayor_stock["cantidad"])}             
+    producto_mas_caro=max(inventario,key=lambda p:p["precio"])
+    producto_mayor_stock=max(inventario,key=lambda p: p["cantidad"])
+    return{"unidades_totales":unidades_totales, "valor_total":valor_total,"producto_mas_caro":(producto_mas_caro["nombre"],producto_mas_caro["precio"]),"producto_mayor_stock":(producto_mayor_stock["nombre"],producto_mayor_stock["cantidad"])}             
