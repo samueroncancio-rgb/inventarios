@@ -6,7 +6,7 @@ def main():
     print("SISTEMA DE INVENTARIOS ")
     
     while True:
-        print("\n--- MENÚ PRINCIPAL ---")
+        print("--- MENÚ PRINCIPAL ---")
         print("1. Agregar producto")
         print("2. Mostrar inventario")
         print("3. Buscar producto")
