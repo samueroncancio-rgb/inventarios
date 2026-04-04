@@ -18,3 +18,30 @@ def mostrar_estudiantes(lista_estudiantes):
     for estudiante in lista_estudiantes:#recorre la lista de estudiantes y muestra cada estudiante con su id, nombre, edad, programa y estado
         print(f"{estudiante["id"]}   {estudiante["nombre"]}       {estudiante["edad"]}       {estudiante["programa"]}       {estudiante["estado"]}")
 
+def buscar_estudiante(lista_estudiantes, id, nombre):#busca un estudiante por el id y nombre en la lista de estudiantes
+    for estudiante in lista_estudiantes:#recorre la lista de estudiantes y compara el id y nombre con los parametros proporcionados
+        if estudiante["id"] == id and estudiante["nombre"] == nombre:
+            return estudiante
+    return None#si no se encuentra el estudiante, devuelve None
+
+def actualizar_estudiante(lista_estudiantes, id, nombre, nueva_edad=None, nuevo_programa=None, nuevo_estado=None):#actualiza la edad, el programa y el estado del estudiante.
+    estudiante= buscar_estudiante(lista_estudiantes, id, nombre)#busca el estudiante por el id y nombre
+    if not estudiante:#si no se encuentra el estudiante, devuelve False
+        return False
+    if nueva_edad is not None:#si se proporciona una nueva edad, actualiza la edad del estudiante
+        estudiante["edad"] = nueva_edad
+    if nuevo_programa is not None:#si se proporciona un nuevo programa, actualiza el programa del estudiante
+        estudiante["programa"] = nuevo_programa
+    if nuevo_estado is not None:#si se proporciona un nuevo estado, actualiza el estado del estudiante
+        estudiante["estado"] = nuevo_estado
+    return True #devuelve True si se actualizo el estudiante correctamente
+
+
+def eliminar_estudiante(lista_estudiantes, id, nombre):#este metodo elimina cualquier estudiante de la lista de estudiantes.
+    estudiante=buscar_estudiante(lista_estudiantes, id, nombre)#busca el estudiante por el id y nombre
+    if estudiante:#si se encuentra el estudiante, lo elimina de la lista de estudiantes
+        lista_estudiantes.remove(estudiante)  
+        return True
+    return False#si no se encuentra el estudiante, devuelve False
+
+
