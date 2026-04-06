@@ -2,7 +2,7 @@ from src import*
 from gestion import*
 
 def main():
-    lista_estudiantes = []
+    estudiante = []
     print("SISTEMA DE REGISTRO DE ESTUDIANTES")
     while True:
         print("--- MENÚ PRINCIPAL ---")
